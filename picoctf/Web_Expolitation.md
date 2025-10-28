@@ -1,49 +1,56 @@
-# 1. Challenge name
+# 1. Web Gauntlet
 
-> Put in the challenge's description here
+> Can you beat the filters? Log in as admin http://shape-facility.picoctf.net:63661/ http://shape-facility.picoctf.net:63661/filter.php
 
 ## Solution:
 
-- Include as many steps as you can with your thought process
-- You **must** include images such as screenshots wherever relevant.
-
-```
-put codes & terminal outputs here using triple backticks
-
-you may also use ```python for python codes for example
-```
+- We had to login as admin on the website by doing sql injection but not using the banned words prresent on the filter website
+- Reading a sql injection resource I found out we can comment the rest of the code and using that concept I passed the filters
+- For Round 1 since or was blocked I used `admin’ --`
+- For Round 2 they blocked `--` so I used `; #` to end the command and then comment the rest of it. The command was `admin';#`
+- In Round 3 also `admin';#` worked
+- For Round 4 since admin was now blocked I first tried concactination of the words ad, min or the character seperately but it was not working
+- Then I tried `ad'||'min';` which worked
+- For Round 5 again the same command `ad'||'min';` worked
 
 ## Flag:
 
 ```
-picoCTF{}
+picoCTF{y0u_m4d3_1t_79a0ddc6}
 ```
 
 ## Concepts learnt:
 
-- Include the new topics you've come across and explain them in brief
-- 
+- In such challenges we can stop the execution of the second half of the command by commenting them out using -- or ;#
 
 ## Notes:
 
-- Include any alternate tangents you went on while solving the challenge, including mistakes & other solutions you found.
-- 
+- At first I tried solving the challenge using the banned/filter words only and on challenge 1 I tried the commands
+```
+' or '1'='1
+hello' or '1' = '1
+```
 
 ## Resources:
 
-- Include the resources you've referred to with links. [example hyperlink](https://google.com)
+- https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
 
 ***
 
 
-# 2. Challenge name
+# 2. SSTI1
 
-> Put in the challenge's description here
+> Get the website http://rescued-float.picoctf.net:56607/ to announce the flag
 
 ## Solution:
 
-- Include as many steps as you can with your thought process
-- You **must** include images such as screenshots wherever relevant.
+- The hint mentioned server side template injection so I first looked that up
+- I tried `{{1+1}}` to see if its vulnerable and it was
+- Next was to use the input to get the flag
+- Using the resource I found I tried the command `{{request['application']['__globals__']['__builtins__']['__import__']('os')['popen']('id')['read']()}}` to get `uid=0(root) gid=0(root) groups=0(root)`
+- On seeing the command we injected and the output, we see that its the **id** command in linux which is being executed
+- On replacing `id` with `ls` we can see the list of files inside and we have a flag file
+- Using cat to open the flag file and retrieve the flag
 
 ```
 put codes & terminal outputs here using triple backticks
@@ -54,22 +61,21 @@ you may also use ```python for python codes for example
 ## Flag:
 
 ```
-picoCTF{}
+picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_bcf73b04}
 ```
 
 ## Concepts learnt:
 
-- Include the new topics you've come across and explain them in brief
-- 
+- SSTI is used when the website needs to render some input from the user as a template like here it was the announce
 
 ## Notes:
 
-- Include any alternate tangents you went on while solving the challenge, including mistakes & other solutions you found.
-- 
+- I first tried a random announcement to see what was the method to see whether it was using a GET method or not
+- I also tried `<script>alert(1)</script>` but didnt get anything 
 
 ## Resources:
 
-- Include the resources you've referred to with links. [example hyperlink](https://google.com)
+- https://onsecurity.io/article/server-side-template-injection-with-jinja2/
 
 
 ***

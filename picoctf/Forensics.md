@@ -55,34 +55,37 @@ picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
 
 ## Solution:
 
-- Include as many steps as you can with your thought process
-- You **must** include images such as screenshots wherever relevant.
-
-```
-put codes & terminal outputs here using triple backticks
-
-you may also use ```python for python codes for example
-```
+- It was a file without an extension so I opened it in HxD to see what kind of file it is
+- The signature of the file were `42 4D` indicating it was a BMP file
+- I tried renaming the file to a .bmp and opening it but it didnt open
+- Tried some other bmp file openers online but they were not the right solution
+- I then tried reading the resource I found online to match my BMP to the correct hex values
+- I changed the data offset from BAD to 36 and the size from BAD to 28
+- I changed the width and height to 10 each resulting in a 16x16 image
+- I tried other random hex values but I couldn't get the image file size right
+- Then I looked it up on exiftool to see the image size as 1134x306 so we needed a decimal number within those values
+- I tried 1080 for the height but it didnt work then I tried 800 which gave me an image of a mountain and a decoy flag
+- I decided to again run the image via a steganography tool but nothing there
+- Then I increased the height to 850 to get the final flag and the [image](https://drive.proton.me/urls/KF51QBFWQG#mxSQWl4cmiBG)
 
 ## Flag:
 
 ```
-picoCTF{}
+picoCTF{qu1t3_a_v13w_2020}
 ```
 
 ## Concepts learnt:
 
-- Include the new topics you've come across and explain them in brief
-- 
+- BMP files have the signature `42 4D` and they are in little endian format compared to other file formats being in big endian for example the hex 0x352 becomes 52 03 while writing
 
 ## Notes:
 
-- Include any alternate tangents you went on while solving the challenge, including mistakes & other solutions you found.
-- 
+- Tried to see if there were something decoded in the bmp file using foremost but it was dead end
+- Once I modified the info header to get a 16x16 image size I tried opening it on steganography tool to view if something was hidden
 
 ## Resources:
 
-- Include the resources you've referred to with links. [example hyperlink](https://google.com)
+- [Understanding the BMP File Format](https://www.donwalizerjr.com/understanding-bmp/)
 
 
 ***
@@ -97,7 +100,7 @@ picoCTF{}
 - Listening to the audio file the beeps resembled a SSTV signal and the hint confirmed the same
 - The challenge provides us with an audio file which resembles a SSTV signal used to decode and encode messages sent to space
 - Using YONIQ to decode the image with the VB-Cable virtual audio device we get the image directly
-- Using Hint 2 to find the CMU mascot to be **Scottie** we use that in RX to get [moonwalk.jpg](moonwalk.jpg)
+- Using Hint 2 to find the CMU mascot to be **Scottie** we use that in RX to get the final [image](https://drive.proton.me/urls/R5FTGQPJ4M#g7o37UgCAZV7)
 - The image gives us `CTF{beep_boop_im_in_space}` amd following the standard flag practice we get the full flag which is `picoCTF{beep_boop_im_in_space}`
 
 ## Flag:
