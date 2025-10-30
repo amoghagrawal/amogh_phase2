@@ -42,40 +42,35 @@ picoctf{549698}
 ***
 
 
-# 2. Challenge name
+# 2. ARMssembly 1
 
-> Put in the challenge's description here
+> For what argument does this program print `win` with variables 79, 7 and 3? File: chall_1.S Flag format: picoCTF{XXXXXXXX} -> (hex, lowercase, no 0x, and 32 bits. ex. 5614267 would be picoCTF{0055aabb})
 
 ## Solution:
 
-- Include as many steps as you can with your thought process
-- You **must** include images such as screenshots wherever relevant.
-
-```
-put codes & terminal outputs here using triple backticks
-
-you may also use ```python for python codes for example
-```
+- I first solved ArmAssembly0 to get an idea of the problem and it was pretty straightforward, just compiling and running the binary file
+- For the current challenge I tried compiling and running but I still needed the arguements to get to win
+- The hint was about shifts and first I tried finding if it was a command for any of the tools like gdb or ghidra but it was not
+- On inspecting the binary, I saw lsl written which was **logical shift left** where it was shifting w1 by w0 and then storing it in the register w0 itself
+- 79 was stored in w0 at 16 and then it was loaded onto w1
+- w0 is 7 when lsl operation is performed so w0 becomes `10112` which is then stored at 28
+- Next with sdiv `10112/3 = 3370` is the output
+- In the main function, we get the output win only when the number is 0 so we need to find x if `3370 - x = 0` so `x = 3370`
 
 ## Flag:
 
 ```
-picoCTF{}
+picoctf{00000D2A}
 ```
 
 ## Concepts learnt:
 
-- Include the new topics you've come across and explain them in brief
-- 
+- Learnt how to compile a .s binary file using `as -o chall.o chall.s`
+- Properly read a binary code and understood what the functions did
 
 ## Notes:
 
-- Include any alternate tangents you went on while solving the challenge, including mistakes & other solutions you found.
-- 
-
-## Resources:
-
-- Include the resources you've referred to with links. [example hyperlink](https://google.com)
+- I had tried disassembling the compiled binary using gdb but that didnt work
 
 
 ***
