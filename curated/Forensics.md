@@ -38,7 +38,7 @@ nite{h1d3_4nd_s33k_but_w1th_st3g_sdfu9s8}
 
 # 2. Nutrela Chunks
 
-> One of my favorite foods is soya chunks. But as I was enjoying some Nutrela today, I noticed a few chunks weren’t quite right. Seems like something’s off with their structure. Could you help me fix these broken chunks so I can enjoy my meal again?
+> One of my favorite foods is soya chunks. But as I was enjoying some Nutrela today, I noticed a few chunks weren’t quite right. Seems like something’s off with their structure. Could you help me fix these broken chunks so I can enjoy my meal again? <br>
 > Image Link: https://drive.google.com/file/d/1sq24uSK6Upavdan4Xv58nixtqRTC44Bp/view?usp=drive_link
 
 ## Solution:
@@ -66,7 +66,7 @@ nite{nOw_yOu_know_abOut_PNG_chunk5}
 
 # 3. RAR of the Abyss
 
-> Two philosophers peer into the networked abyss and swap a secret. Use the secret to decrypt the Abyss’ RAwR and pull your flag from the void.
+> Two philosophers peer into the networked abyss and swap a secret. Use the secret to decrypt the Abyss’ RAwR and pull your flag from the void. <br>
 > Chal file: https://drive.google.com/file/d/1y3uXswPgTy4JZLo2UJX_YgcUKNaERCn8/view?usp=drive_link
 
 ## Solution:
@@ -97,7 +97,7 @@ nite{thus_sp0k3_th3_n3tw0rk_f0r3ns1cs_4n4lyst}
 
 # 4. NineTails
 
-> Looks like I got a little too clever and hid the flag as a password in Firefox, tucked away like one of NineTails’ many tails. Recover the "logins" and the "key4" and let it guide you to the flag.
+> Looks like I got a little too clever and hid the flag as a password in Firefox, tucked away like one of NineTails’ many tails. Recover the "logins" and the "key4" and let it guide you to the flag. <br>
 > Chal file: https://drive.google.com/file/d/1TGAwjuKp37JuQ_9JyJRAt3qkMTe5YT_U/view?usp=drive_link
 
 ## Solution:
@@ -163,9 +163,9 @@ GCTF{m0zarella_f1ref0x_p4ssw0rd}
 
 # 5. Re:Draw
 
-> Her screen went black and a strange command window flickered to life, lines of text flashed across before everything went silent. Moments later, the system crashed. By sheer luck, we recovered a memory dump. 
-> Note: There are three stages to this challenge and you will find three flags.
-> What we know: just before the crash, a black command window flickered across the screen, something in its output might still be visible if you dig through memory. She was drawing when it happened, and remnants of a painting program linger, which could reveal more if inspected in the right way. Finally, a mysterious archive hides deeper in memory, likely holding the last piece of her work.
+> Her screen went black and a strange command window flickered to life, lines of text flashed across before everything went silent. Moments later, the system crashed. By sheer luck, we recovered a memory dump. <br>
+> Note: There are three stages to this challenge and you will find three flags. <br>
+> What we know: just before the crash, a black command window flickered across the screen, something in its output might still be visible if you dig through memory. She was drawing when it happened, and remnants of a painting program linger, which could reveal more if inspected in the right way. Finally, a mysterious archive hides deeper in memory, likely holding the last piece of her work. <br>
 > Chal file: https://drive.google.com/file/d/10bSczFPLichF-_qRXw0BYMaFvpTSwQd1/view?usp=drive_link
 
 ## Solution:
